@@ -1,0 +1,27 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <button type="button" matButton (click)="drawer.toggle()">
+      <mat-icon>close</mat-icon>
+    </button><br>
+    <img>
+        <a class="btnint" mat-button (click)="drawer.toggle()" routerLink="/Home" routerLinkActive="active">Home</a>
+        <a class="btnint" mat-button (click)="drawer.toggle()" routerLink="/Store/Anadamento" routerLinkActive="active">Andamento</a>
+        <a class="btnint" mat-button (click)="drawer.toggle()" routerLink="/Magazzino/Giacenza" routerLinkActive="active"> Magazzino</a>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar>
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Sinica Management Group</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>face</mat-icon>
+      </button>
+
+    </mat-toolbar>
+  </div>
+    <br>
+  <router-outlet></router-outlet>
+</mat-drawer-container>

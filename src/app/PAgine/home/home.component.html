@@ -1,0 +1,105 @@
+<mat-card class="store">
+    <mat-card-title style="text-align: center;">
+      Rozzano
+    </mat-card-title>
+    <mat-card-content>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Oggi</h5>
+      <h3 style="text-align: center; line-height: 0.4;color: green;">{{per[0].Rozzano }} </h3><h5 >{{ per[0].incRozzano }}%</h5>
+      <h5 style="text-align: center;color: lightgray;  line-height: 0.4;">Settimana</h5>
+      <h3 style="text-align: center; line-height: 0.4; ">{{per[1].Rozzano }}</h3><h5 >{{ per[1].incRozzano }}%</h5>
+      <h5 style="text-align: center; color: lightgray; line-height: 0.4;">Mese</h5>
+      <h3 style="text-align: center;  line-height: 0.4;">{{per[2].Rozzano }}</h3><h5 >{{ per[2].incRozzano }}%</h5>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="store">
+    <mat-card-title style="text-align: center;">
+      Torino
+    </mat-card-title>
+    <mat-card-content>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Oggi</h5>
+      <h3 style="text-align: center; line-height: 0.4; color: green;">{{per[0].Torino }}</h3><h5 >{{ per[0].incTorino }}%</h5>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Settimana</h5>
+      <h3 style="text-align: center; line-height: 0.4;">{{per[1].Torino }}</h3><h5 >{{ per[1].incTorino }}%</h5>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Mese</h5>
+      <h3 style="text-align: center;line-height: 0.4;">{{per[2].Torino }}</h3><h5 >{{ per[2].incTorino }}%</h5>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="storelast">
+    <mat-card-title style="text-align: center;">
+      Genova
+    </mat-card-title>
+    <mat-card-content>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Oggi</h5>
+      <h3 style="text-align: center; line-height: 0.4;color: green;">{{per[0].Genova }}</h3><h5 >{{ per[0].incGenova }}%</h5>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Settimana</h5>
+      <h3 style="text-align: center; line-height: 0.4;">{{per[1].Genova }}</h3><h5 >{{ per[1].incGenova }}%</h5>
+      <h5 style="text-align: center; color: lightgray;line-height: 0.4;">Mese</h5>
+      <h3 style="text-align: center;line-height: 0.4;">{{per[2].Genova }}</h3><h5 >{{ per[2].incGenova }}%</h5>
+    </mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card mat-button (click)="onClick('incasso')" class="incasso" *ngIf="showpie" >
+    <mat-card-title >Incasso</mat-card-title>
+    <mat-card-subtitle>Incassi Per Store</mat-card-subtitle>
+    <mat-card-content>
+      <google-chart
+      [title]="title"
+      [type]="type3"
+      [data]="data3"
+      [options]="options3"
+      [width]="chartWidth"
+      [height]="chartHeight"
+      [dynamicResize]="true"></google-chart>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="incasso" *ngIf="showgr3" >
+    <mat-card-title mat-button (click)="onClick('categoria')">Categoria</mat-card-title>
+    <mat-card-subtitle>Venduto Per Categoria</mat-card-subtitle>
+    <mat-card-content>
+      <google-chart
+      class="pie"
+      [title]="title6"
+      [type]="type6"
+      [data]="bubler"
+      [columns]="columns6"
+      [options]="options6"
+      [width]="chartWidth"
+      [height]="chartHeight"
+      ></google-chart>
+    </mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card *ngIf="showgr2" >
+    <mat-card-title mat-button (click)="onClick('fascia')">Fascia Oraria</mat-card-title>
+    <mat-card-subtitle>Andamento di Oggi</mat-card-subtitle>
+    <mat-card-content>
+      <google-chart
+      class="pie"
+      [title]="title4"
+      [type]="type4"
+      [data]="data4"
+      [columns]="columns4"
+      [options]="options4"
+      [width]="chartWidth"
+      [height]="chartHeight">
+    </google-chart>
+    </mat-card-content>
+  </mat-card>
+  <br>
+  <mat-card *ngIf="showIncassi">
+    <mat-card-title mat-button (click)="onClick('andamento')">Andamento</mat-card-title>
+    <mat-card-subtitle>view Ultime 3 Settimane</mat-card-subtitle>
+    <mat-card-content>
+  
+    <google-chart
+        [title]="title2"
+        [type]="type2"
+        [data]="data2"
+        [columns]="columns2"
+        [options]="options2"
+        [width]="chartWidth"
+        [height]="chartHeight"
+        [dynamicResize]="true">
+    </google-chart>
+    </mat-card-content>
+  </mat-card>

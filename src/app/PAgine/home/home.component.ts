@@ -78,8 +78,6 @@ constructor(private api:HttpClient, public dialog:MatDialog, private api2:HttpCl
     this.cassettostore();
     this.fasciaoraria()
 
-    //this.type4 = ChartType.Re
-
 }
 
 onClick(tipo:string){
